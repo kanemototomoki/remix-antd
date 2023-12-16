@@ -9,13 +9,15 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import "antd/dist/reset.css";
+
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,8 +27,8 @@ export default function App() {
       <body>
         <Outlet />
         <ScrollRestoration />
-        <Scripts />
         <LiveReload />
+        <Scripts />
       </body>
     </html>
   );
