@@ -10,9 +10,11 @@ import {
 } from "@remix-run/react";
 
 import "antd/dist/reset.css";
+import { TasksProvider } from "./features/tasks/TasksProvider";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: "./global.css" },
 ];
 
 export default function App() {
@@ -21,14 +23,21 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="view-transition" content="same-origin" />
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <LiveReload />
-        <Scripts />
+      <body
+        style={{
+          background: "gainsboro",
+        }}
+      >
+        <TasksProvider>
+          <Outlet />
+          <ScrollRestoration />
+          <LiveReload />
+          <Scripts />
+        </TasksProvider>
       </body>
     </html>
   );

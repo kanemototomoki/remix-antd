@@ -1,6 +1,5 @@
+import { TaskList, TaskForm } from "~/features/tasks/components";
 import { container } from "./style.css";
-import TaskForm from "~/ui/TaskForm";
-import TaskList from "~/ui/TaskList";
 
 export default function Tasks() {
   return (

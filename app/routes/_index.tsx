@@ -8,7 +8,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = () => {
-  return redirect("/task");
+  return redirect("/tasks");
 };
 
 export default function Index() {

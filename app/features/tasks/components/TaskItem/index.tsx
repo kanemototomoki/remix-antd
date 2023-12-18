@@ -1,23 +1,40 @@
 import { Card } from "antd";
 import { FC } from "react";
 import { Task } from "~/types";
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 
 type Props = {
   task: Task;
 };
-const TaskItem: FC<Props> = ({ task }) => {
+
+export const TaskItem: FC<Props> = ({ task }) => {
   return (
-    <Link to={`/tasks/${task.id}`}>
+    <NavLink to={`/tasks/${task.id}`} unstable_viewTransition>
       <Card
-        title="Card title"
         bordered
         hoverable
+        style={{
+          width: 240,
+          viewTransitionName: `card-${task.id}`,
+          contain: "paint",
+        }}
+        cover={
+          <img
+            alt="thumbnail"
+            src={task.thumbnailUrl}
+            loading="lazy"
+            style={{
+              width: 240,
+              height: 240,
+              objectFit: "cover",
+            }}
+          />
+        }
       >
-        {task.taskName}
+        ID: {task.id}
+        <br />
+        Task Name: {task.taskName}
       </Card>
-    </Link>
+    </NavLink>
   );
 };
-
-export default TaskItem;

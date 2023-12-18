@@ -1,0 +1,32 @@
+@keyframes slide-to-left {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+/* ::view-transition-old(root) {
+  animation-duration: 0.3s;
+  animation-name: slide-to-left;
+}
+
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-name: slide-from-right;
+} */
+
+a.transitioning {
+  animation: none;
+  contain: paint;
+}

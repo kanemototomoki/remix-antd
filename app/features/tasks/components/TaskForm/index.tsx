@@ -1,12 +1,17 @@
 import { Form, Input, Button } from "antd";
 import { Task } from "~/types";
+import { useTaskContext } from "../../useTasksContext";
 
-const TaskForm = () => {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+export const TaskForm = () => {
+  const {
+    updaters: { add },
+  } = useTaskContext();
+
+  const onFinish = (values: Task) => {
+    add(values);
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo: unknown) => {
     console.log("Failed:", errorInfo);
   };
 
@@ -38,5 +43,3 @@ const TaskForm = () => {
     </Form>
   );
 };
-
-export default TaskForm;
